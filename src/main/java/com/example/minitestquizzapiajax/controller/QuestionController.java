@@ -24,6 +24,8 @@ public class QuestionController {
     public ResponseEntity<Iterable<Question>> findAll() {
         return new ResponseEntity<>(questionService.findAll(), HttpStatus.OK);
     }
+
+
     @GetMapping("/{id}")
     public ResponseEntity<Question> findProductById(@PathVariable Long id) {
         Optional<Question> questionOptional = questionService.findById(id);
@@ -53,7 +55,7 @@ public class QuestionController {
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Question> deleteAnswer(@PathVariable Long id) {
+    public ResponseEntity<Question> deleteQuestion(@PathVariable Long id) {
         java.util.Optional<Question> questionOptional = questionService.findById(id);
         if (!questionOptional.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
